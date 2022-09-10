@@ -13,39 +13,13 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">Create an article</h1>
-                <form action="{{ route ('articles.store') }}" method="POST">
-
-                    @csrf
-
-                    <label for="">Title</label>
-                    <input class="form-control mb-3" type="text" name="title" id="title">
-                    <label for="">Subtitle</label>
-                    <input class="form-control mb-3" type="text" name="subtitle" id="subtitle">
-                    <label for="">Text</label>
-                    <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea>
-                    <div class="d-flex justify-content-center"><button class="mt-3 btn btn-outline-primary">Create</button></div>
-                </form>
-            </div>
-        </div>
+        <livewire:article-create />
 
         <div class="row my-5 pt-3">
 
             @foreach ($articles as $article)
 
-            <div class="col-md-4 col-12">
-                <div class="card m-3" style="width: 18rem;">
-                    <img src="https://picsum.photos/300?a={{ $loop->index }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $article->title }}</h5>
-                        <h5 class="card-title">{{ $article->subtitle }}</h5>
-                        <p class="card-text">{{ $article->text }}</p>
-                        <a href="#" class="btn btn-primary">Show more</a>
-                    </div>
-                </div>
-            </div>
+            <livewire:article :article="$article"/>
 
             @endforeach
 
