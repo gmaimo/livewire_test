@@ -10,6 +10,14 @@ class ArticleList extends Component
 
     public $articles;
 
+    //crear evento update cuando escuche que se ha creado articulo
+    protected $listeners = ['articleCreated'=>'updateArticles'];
+
+    public function updateArticles()
+    {
+        $this->articles = Article::latest()->get();
+    }
+
     public function mount()
     {
         //recuperar todos los articulos

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ArticleCreate extends Component
 {
-    
+
     public $title;
     public $subtitle;
     public $text;
@@ -28,12 +28,22 @@ class ArticleCreate extends Component
     {
         //validar articulo
         $this->validate();
+
         //guardar articulo
         Article::create([
             'title'=>$this->title,
             'subtitle'=>$this->subtitle,
             'text'=>$this->text
         ]);
+
+        //emitir evento de creacion
+        $this->emit('articleCreated');
+
+        //una vez creado articulo limpiar form
+        $this->title = '';
+        $this->subtitle = '';
+        $this->text = '';
+
     }
 
     public function render()

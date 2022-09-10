@@ -2,7 +2,7 @@
 
     @foreach ($articles as $article)
 
-    <livewire:article :article="$article"/>
+    <livewire:article :article="$article" :wire:key="$article->id"/>
 
     @endforeach
 
