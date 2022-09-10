@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ArticleCreate extends Component
 {
-
+    
     public $title;
     public $subtitle;
     public $text;
