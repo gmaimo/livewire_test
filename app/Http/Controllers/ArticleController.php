@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::latest()->get();
+        return view ('welcome', compact ('articles'));
     }
 
     /**
@@ -35,7 +36,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
