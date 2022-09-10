@@ -9,6 +9,13 @@ class Article extends Component
 
     public $article;
 
+    public function delete()
+    {
+        //borrar articulo
+        $this->article->delete();
+        $this->emit('articleCreated');
+    }
+
     public function render()
     {
         return view('livewire.article');

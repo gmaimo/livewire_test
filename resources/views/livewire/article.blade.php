@@ -5,7 +5,8 @@
             <h5 class="card-title">{{ $article->title }}</h5>
             <h5 class="card-title">{{ $article->subtitle }}</h5>
             <p class="card-text">{{ $article->text }}</p>
-            <a href="#" class="btn btn-primary">Show more</a>
+            <a href="#" class="btn btn-outline-success">Show more</a>
+            <button class="btn btn-outline-danger" wire:click="delete">Delete</button>
         </div>
     </div>
 </div>

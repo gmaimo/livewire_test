@@ -44,6 +44,8 @@ class ArticleCreate extends Component
         $this->subtitle = '';
         $this->text = '';
 
+        session()->flash('message', 'Post successfully created!');
+
     }
 
     public function render()

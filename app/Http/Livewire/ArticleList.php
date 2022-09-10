@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class ArticleList extends Component
 {
-
     public $articles;
 
     //crear evento update cuando escuche que se ha creado articulo
