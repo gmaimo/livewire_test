@@ -13,7 +13,7 @@ class Article extends Component
     {
         //borrar articulo
         $this->article->delete();
-        $this->emit('articleCreated');
+        $this->emit('articlesChanged');
     }
 
     public function render()

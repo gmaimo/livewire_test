@@ -8,14 +8,12 @@ use Livewire\Component;
 class ArticleCreate extends Component
 {
 
-    public $title;
-    public $subtitle;
-    public $text;
+    public $article;
 
     protected $rules = [
-        'title' => 'required|min:3|max:255',
-        'subtitle' => 'required|min:3|max:255',
-        'text' => 'required'
+        'article.title' => 'required|min:3|max:255',
+        'article.subtitle' => 'required|min:3|max:255',
+        'article.text' => 'required'
     ];
 
     //realtime validation
@@ -30,19 +28,15 @@ class ArticleCreate extends Component
         $this->validate();
 
         //guardar articulo
-        Article::create([
-            'title'=>$this->title,
-            'subtitle'=>$this->subtitle,
-            'text'=>$this->text
-        ]);
+        Article::create($this->article);
 
         //emitir evento de creacion
-        $this->emit('articleCreated');
+        $this->emit('articlesChanged');
 
         //una vez creado articulo limpiar form
-        $this->title = '';
-        $this->subtitle = '';
-        $this->text = '';
+        $this->article['title'] = '';
+        $this->article['subtitle'] = '';
+        $this->article['text'] = '';
 
         session()->flash('message', 'Post successfully created!');
 

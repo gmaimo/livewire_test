@@ -8,13 +8,23 @@ use Livewire\Component;
 class ArticleList extends Component
 {
     public $articles;
+    public $search;
 
     //crear evento update cuando escuche que se ha creado articulo
-    protected $listeners = ['articleCreated'=>'updateArticles'];
+    protected $listeners = ['articlesChanged'=>'updateArticles'];
 
     public function updateArticles()
     {
         $this->articles = Article::latest()->get();
+    }
+
+    public function updatedSearch()
+    {
+        //recuperar los articulos que coinciden con la busqueda
+        $this->articles = Article::where('title','like',"%$this->search%")->
+                                    orWhere('subtitle','like',"%$this->search%")->
+                                    orWhere('text','like',"%$this->search%")->
+                                    latest()->get();
     }
 
     public function mount()

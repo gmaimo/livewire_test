@@ -2,6 +2,11 @@
 
     <h1 class="text-center mb-3">Article List</h1>
 
+    <div class="col-12 mb-3">
+        <label for="">Search by refefernce: {{ $search }}</label>
+        <input type="text" placeholder="Search" class="form-control" wire:model="search">
+    </div>
+
     @foreach ($articles as $article)
 
     <livewire:article :article="$article" :wire:key="$article->id"/>
