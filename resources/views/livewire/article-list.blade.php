@@ -4,7 +4,7 @@
 
     <div class="col-12 mb-3">
         <label for="">Search by refefernce: {{ $search }}</label>
-        <input type="text" placeholder="Search" class="form-control" wire:model="search">
+        <input type="text" placeholder="Search" class="form-control" wire:model.debounce.500ms="search">
     </div>
 
     @foreach ($articles as $article)

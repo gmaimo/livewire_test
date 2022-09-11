@@ -25,6 +25,7 @@ class ArticleList extends Component
                                     orWhere('subtitle','like',"%$this->search%")->
                                     orWhere('text','like',"%$this->search%")->
                                     latest()->get();
+        $this->emit('found', $this->search);
     }
 
     public function mount()

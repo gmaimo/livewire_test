@@ -10,13 +10,13 @@
         <h1 class="text-center">Create an article</h1>
         <form wire:submit.prevent="store">
             <label for="">Title</label>
-            <input class="form-control mb-3" type="text" name="title" wire:model="article.title">
+            <input class="form-control mb-3" type="text" name="title" wire:model.debounce.500ms="article.title">
             @error('title') <div class="error text-danger">{{ $message }} </div> @enderror
             <label for="">Subtitle</label>
-            <input class="form-control mb-3" type="text" name="subtitle" wire:model="article.subtitle">
+            <input class="form-control mb-3" type="text" name="subtitle" wire:mode.debounce.500ms="article.subtitle">
             @error('subtitle') <div class="error text-danger">{{ $message }} </div> @enderror
             <label for="">Text</label>
-            <textarea class="form-control" name="text" id="text" cols="30" rows="1" wire:model="article.text"></textarea>
+            <textarea class="form-control" name="text" id="text" cols="30" rows="1" wire:model.debounce.500ms="article.text"></textarea>
             @error('text') <div class="error text-danger">{{ $message }} </div> @enderror
             <div class="d-flex justify-content-center"><button class="mt-3 btn btn-outline-primary">Create</button></div>
         </form>
